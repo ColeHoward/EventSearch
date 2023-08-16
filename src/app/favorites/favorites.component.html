@@ -1,0 +1,48 @@
+<div class="row navbar">
+  <div class="col">
+    <button id="fav-button" class="nav-button active"><a routerLink="/favorites">Favorites</a></button>
+    <button id="search-button" class="nav-button"><a routerLink="/search">Search</a></button>
+  </div>
+</div>
+<div id="some-container" class="container">
+<div id="favorites-container" class="row-cols-auto">
+  <div *ngIf="!dataSource || dataSource.length === 0" id="no-favorites"><p>No Favorites to Show</p></div>
+  <mat-table class="table table-responsive container-sm col-sm-12 col-md-7 mx-auto"
+             *ngIf="dataSource && dataSource.length > 0" [dataSource]="dataSource">
+    <ng-container matColumnDef="index">
+      <mat-header-cell *matHeaderCellDef >index</mat-header-cell>
+      <mat-cell *matCellDef="let i = index">{{i+1}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef >Date</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.date}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="event">
+      <mat-header-cell *matHeaderCellDef >Event</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+      <mat-header-cell *matHeaderCellDef >Category</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.categories}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="venue">
+      <mat-header-cell *matHeaderCellDef>Venue</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.venue}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="isFavorite">
+      <mat-header-cell *matHeaderCellDef >Favorite</mat-header-cell>
+      <mat-cell *matCellDef="let row" (click)="removeFavorite(row.name)" >
+        <img src="../../assets/icons/trash.svg" class="trash">
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns" class="table-row"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></mat-row>
+  </mat-table>
+</div>
+</div>
+

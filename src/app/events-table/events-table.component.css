@@ -1,0 +1,62 @@
+.icon {
+  width: 100px;
+  height: 100px;
+}
+#table-container {
+  display: block;
+  margin-top: 5vh;
+  max-width: 95vw !important;
+  overflow-x: auto;
+}
+#table-container[_ngcontent-guj-c133] {
+  display: block;
+  margin-top: 5vh;
+  max-width: 95vw;
+  overflow-x: auto;
+}
+.table {
+  border-radius: 10px;
+  background-color: gray;
+}
+[role=cell], mat-header-cell {
+  /*display:flex;*/
+  justify-content:center;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  color: whitesmoke;
+  min-width: 10vw;
+}
+.mat-row, mat-header-row, .mdc-data-table__header-row, .mdc-data-table__row {
+  max-width: 100%;
+  overflow: auto;
+}
+mat-sort-header-container {
+  text-align: center;
+}
+.table-row:nth-child(even) {
+  background-color: #2B2F35;
+}
+.table-row:nth-child(odd) {
+  background-color: #202529;
+}
+#no-events {
+  color: red;
+  background-color: white;
+  border-radius: 10px;
+  width: 40vw;
+  height: 10vh;
+}
+.eventName  {
+  cursor: pointer;
+}
+#error-container {
+  width: 60vw;
+  height: 25px;
+  border-radius: 5px;
+  margin: 10px auto;
+  color: red;
+  text-align: center;
+  background-color: white;
+  line-height: 25px;
+}

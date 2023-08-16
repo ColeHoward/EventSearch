@@ -1,0 +1,51 @@
+<div id="entire-description-container" class="container d-flex flex-column">
+  <div id="description-container"  class="row">
+    <div class="col-sm-12 col-lg-5">
+    <div class='detail' id="date">
+      <div class="detail-header" *ngIf="date_string">Date</div>
+      <div class="detail-val">{{date_string}}</div>
+    </div>
+    <div class='detail' id="artist-team" *ngIf="artist_team">
+      <div class="detail-header">Artist/Team</div>
+      <div class="detail-val">{{artist_team}}</div>
+    </div>
+    <div class='detail' id="venue" *ngIf="venue">
+      <div class="detail-header">Venue</div>
+      <div class="detail-val">{{venue}}</div>
+    </div>
+    <div class='detail' id="genres" *ngIf="genres">
+      <div class="detail-header">Genres</div>
+      <div class="detail-val">{{genres}}</div>
+    </div>
+    <div class='detail' id="price-ranges" *ngIf="price_ranges">
+      <div class="detail-header">Price Ranges</div>
+      <div class="detail-val">{{price_ranges}}</div>
+    </div>
+    <div class='detail' id="ticket-status" *ngIf="ticket_status">
+      <div class="detail-header">Ticket Status</div>
+      <div class="detail-val {{statusMap[ticket_status][1]}}" id="status-val">
+        {{statusMap[ticket_status][0]}}
+      </div>
+    </div>
+    <div class='detail' id="buy-ticket" *ngIf="buy_ticket">
+      <div class="detail-header">Buy Ticket At:</div>
+      <div class="detail-val"><a href="{{buy_ticket}}" target="_blank">Ticketmaster</a></div>
+    </div>
+  </div>
+  <div id="seatmap-container" class="col-sm-12 col-lg-7" *ngIf="seatMap">
+    <img id="diagram" src="{{seatMap}}" alt="arena-diagram"/>
+  </div>
+  </div>
+  <div id="social-links">
+    <div id="link-container">
+      <p id="share-on">Share on: </p>
+      <img class="social-logo" id="twitter-logo" src="{{twitterIcon}}" alt="twitter-logo"
+        (click)="shareTwitter()"/>
+      <img class="social-logo" id="fb-logo" src="{{fbIcon}}" alt="fb-logo"
+        (click)="shareFacebook()"/>
+    </div>
+  </div>
+</div>
+
+
+

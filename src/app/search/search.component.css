@@ -1,0 +1,16 @@
+.nav-button {
+  float: right;
+  margin-right: 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: none;
+  padding: 5px 10px 5px 10px;
+}
+.active {
+  border: 1px solid white;
+}
+.nav-button a {
+  text-decoration: inherit;
+  color: white;
+}
+

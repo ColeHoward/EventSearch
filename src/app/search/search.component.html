@@ -1,0 +1,20 @@
+<div class="row navbar">
+  <div class="col">
+    <button id="fav-button" class="nav-button"><a routerLink="/favorites">Favorites</a></button>
+    <button id="search-button" class="nav-button active"><a routerLink="/search">Search</a></button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <app-search-form class="col-12 d-flex justify-content-center"></app-search-form>
+  </div>
+  <div class="row mt-5">
+    <div class="col-12 d-flex justify-content-center"><app-events-table></app-events-table></div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-12 col-lg-7 mx-auto d-flex justify-content-center">
+      <app-event-details class="container"></app-event-details>
+    </div>
+  </div>
+</div>

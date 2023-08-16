@@ -1,0 +1,33 @@
+<div id="error-container" class="row" *ngIf="noEventsFound">
+  <p>No results available</p>
+</div>
+<div id="table-container" class="" *ngIf="!noEventsFound && dataSource?.data && dataSource.data.length > 0 && showTable">
+  <mat-table class="table col-sm-12 col-md-7 mx-auto" *ngIf="!noEventsFound" [dataSource]="dataSource">
+    <ng-container matColumnDef="Date">
+      <mat-header-cell *matHeaderCellDef >Date</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.date}}<br/>{{row.time}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Icon">
+      <mat-header-cell *matHeaderCellDef >Icon</mat-header-cell>
+      <mat-cell *matCellDef="let row"><img class="icon" src="{{row.icon}}" alt="{{row.Name}}-icon"></mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Event">
+      <mat-header-cell *matHeaderCellDef >Event</mat-header-cell>
+      <mat-cell *matCellDef="let row" class="eventName"
+                (click)="displayEventDetails(row)">{{row.Name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Genre">
+      <mat-header-cell *matHeaderCellDef>Genre</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.genre}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Venue">
+      <mat-header-cell *matHeaderCellDef >Venue</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.venue}}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns" class="table-row"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></mat-row>
+  </mat-table>
+</div>

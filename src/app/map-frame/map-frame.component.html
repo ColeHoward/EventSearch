@@ -1,0 +1,13 @@
+<div id="map-container">
+  <div id="map-header">
+    <p>Event Venue</p>
+  </div>
+  <div class="my-google-map" id="map-wrapper">
+    <google-map height="100%" width="100%" [center]="center" [zoom]="zoom" [options]="options" id="map">
+      <map-marker *ngIf="center" [position]="center"></map-marker>
+    </google-map>
+  </div>
+  <div id="button-container">
+    <button (click)="closeMap()" class="btn btn-dark">Close</button>
+  </div>
+</div>

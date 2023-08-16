@@ -1,0 +1,49 @@
+<div id="venue-description" class="container">
+<!--  <div id="venue-description-container" class="grid-container">-->
+  <div class="row">
+  <div class="col-sm-12 col-md-6">
+    <div class="item" id="item-1" *ngIf="venueName">
+      <p class="venue-header">Name</p>
+      <p class="venue-value">{{venueName}}</p>
+    </div>
+    <div class="item" id="item-2" *ngIf="address">
+      <p class="venue-header">Address</p>
+      <p class="venue-value">{{address}}</p>
+    </div>
+    <div class="item" id="item-3" *ngIf="phoneNumber">
+      <p class="venue-header">Phone Number</p>
+      <p class="venue-value">{{phoneNumber}}</p>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-6">
+    <div class="item" id="item-4" *ngIf="openHours">
+      <p class="venue-header">Open Hours</p>
+      <p class="venue-value">{{openHours | slice:0:50}}
+        <span *ngIf="showMoreOpenHours">{{openHours | slice:50}}</span>
+        <br />
+        <a (click)="changeMoreHoursView()" *ngIf="openHours.length >= 50">{{ showMoreOpenHours ? 'Show less' : 'Show more' }}</a>
+      </p>
+    </div>
+    <div class="item" id="item-5" *ngIf="generalRule">
+      <p class="venue-header">General Rule</p>
+      <p class="venue-value">
+        {{ generalRule | slice:0:50 }}<span *ngIf="showMoreGeneralRule">{{ generalRule | slice:50 }}</span>
+        <br>
+        <a (click)="changeGeneralView()" *ngIf="generalRule.length >= 50">{{ showMoreGeneralRule ? 'Show less' : 'Show more' }}</a>
+      </p>
+    </div>
+    <div class="item" id="item-6" *ngIf="childRule">
+      <p class="venue-header">Child Rule</p>
+      <p class="venue-value">
+        {{childRule | slice:0:50 }}<span *ngIf="showMoreChildRule">{{ childRule | slice:50 }}</span>
+        <br>
+        <a (click)="changeChildView()" *ngIf="childRule.length >= 50">{{ showMoreChildRule ? 'Show less' : 'Show more' }}</a>
+      </p>
+    </div>
+  </div>
+  </div>
+<!--  </div>-->
+  <div class="item" id="item-7" *ngIf="address">
+    <button class="btn btn-danger btn-sm" id="show-venue-button" (click)="showMap()">Show Venue in Google Maps</button>
+  </div>
+</div>

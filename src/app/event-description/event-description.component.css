@@ -1,0 +1,78 @@
+#description-container {
+  /*width: 40%;*/
+  text-align: center;
+  font-size: 1em;
+  /*float: left;*/
+  /*margin-top: 10px;*/
+  /*padding-left: 10px*/
+}
+.detail {
+  margin: 5px 0 15px 0;
+  padding-left: 5px;
+}
+.detail-header {
+  color: #00FCDC;
+}
+.detail-val {
+  color: white;
+}
+#seatmap-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#diagram {
+  max-height: 80%;
+  max-width: 80%;
+  /*position: relative;*/
+  /*left: 10%;*/
+  /*margin: 5px;*/
+}
+#social-links {
+  width: 100%;
+  height: 8vh;
+  float: left;
+  margin: 10px 0 10px 0;
+}
+#link-container {
+  width: 50%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+}
+.social-logo {
+  height: 25px;
+  width: 25px;
+  float: left;
+  margin: 0 5px 0 0;
+  cursor: pointer;
+}
+.mat-mdc-tab-body-content {
+  overflow: hidden !important;
+}
+#share-on {
+  float: left;
+  margin: 0 5px 0 0;
+  color: white;
+}
+.on-sale {
+  background-color: green;
+}
+.rescheduled, .postponed {
+  background-color: orange;
+}
+.off-sale {
+  background-color: red;
+}
+.cancelled {
+  background-color: black;
+}
+#status-val {
+  border-radius: 5px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px 10px 5px 10px;
+}

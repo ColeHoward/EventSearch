@@ -1,0 +1,51 @@
+<div id="content" class="row mx-auto">
+  <div id="form-container" class="cards container col-md-8 col-sm-11 mx-auto d-flex justify-content-center">
+    <div id="header" class="row">
+      <div id="header-content" class="col-12">
+        <p id="title">Events Search</p>
+      </div>
+    </div>
+    <form ngNativeValidate (submit)="search()" class="container row">
+      <div class="row">
+        <div class="col-12">
+          <label id="keyword-label" for="keyword">Keyword<span class="star">*</span></label><br />
+          <input id="keyword" type="text" class="inputs" required [(ngModel)]="keywords" name="keywords"
+                 matInput
+                 [formControl]="myControl"
+                 [matAutocomplete]="auto" (input)="updateSuggestions()"/>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let suggestion of suggestions" [value]="suggestion">
+              {{suggestion}}
+            </mat-option>
+          </mat-autocomplete>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <label id="dist-label" for="distance" >Distance (miles)</label><br/>
+          <input id="distance" type="number" placeholder="10" [(ngModel)]="distance" name="distance" min="0" class="inputs"/>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <label id="cat-label" for="categoriesz">Category<span class="star">*</span></label><br />
+          <select [(ngModel)]="selectedCategory" name="selectedCategory" id="categoriesz" class="inputs">
+            <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <label id="loc-label" for="location">Location<span class="star">*</span></label>
+          <input id="location" class="inputs" type="text" required [(ngModel)]="location" name="location"/><br />
+          <input id="auto-loc" class="inputs" type="checkbox" [(ngModel)]="autoLoc" (change)="handleRequired()" name="autoLoc"/>
+          <label id="auto-loc-label" for="auto-loc" >Auto-Detect Location</label><br/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="btn-group col-6 mx-auto d-flex justify-content-center" role="group">
+          <button type="submit" class="btn btn-danger rounded btn-sm" value="SEARCH">SEARCH</button>
+          <button type="button" class="btn btn-primary rounded btn-sm" value="CLEAR" (click)="clear()">CLEAR</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

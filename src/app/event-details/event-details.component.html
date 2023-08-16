@@ -1,0 +1,32 @@
+<div *ngIf="showEventDetails" id='event-details' style='display:flow-root;'
+     class='cards'>
+  <div class="row-12">
+    <a id="back-link" (click)="removeEventDetails()">
+      <img src="{{chevronIcon}}"><u>Back</u>
+    </a>
+  </div>
+
+  <div id='details-header' class="text-white position-relative row justify-content-center">
+    <div class="col-12 text-center">
+      <div id="title-container">
+        <p id="title">{{event_name}}</p>
+        <button id="fav-icon" (click)="changeHeart()" class="bg-white border-0 spinner-border-sm">
+          <img src="{{heartIcon}}" alt="favorite">
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <mat-tab-group backgroundColor="accent">
+    <mat-tab label="Events" >
+      <app-event-description style="height: fit-content"></app-event-description>
+    </mat-tab>
+    <mat-tab label="Artist/Teams">
+      <app-artist-description style="height: fit-content"></app-artist-description>
+    </mat-tab>
+    <mat-tab label="Venue">
+      <app-venue-description style="height: fit-content"></app-venue-description>
+    </mat-tab>
+  </mat-tab-group>
+</div>

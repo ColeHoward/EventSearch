@@ -1,0 +1,68 @@
+<div id="no-artist-results" *ngIf="artistDetails.length <= 0">
+  <p id="no-artist-results-text">No artist results found</p>
+  {{artistNames}}
+</div>
+
+<div id="artist-carousel-container" class="carousel slide" data-ride="carousel" *ngIf="artistDetails.length > 0">
+  <div class="carousel-inner" id="artist-carousel" #artistCarousel style="overflow: unset;">
+    <div *ngFor="let artist of artistDetails; let i = index" class="carousel-item" [class.active]="i === 0">
+      <div id="artist-container" class="">
+        <div id="level1" class="level row  d-flex flex-sm-column flex-md-row">
+          <div id="item0" class="level1-item col-sm-12 col-md-3 d-flex justify-content-md-center justify-content-sm-around">
+            <div id="artist-image-container" *ngIf="artistDetails.length > 0">
+              <img id="artist-img" src="{{artist.artistImg}}" alt="artist image" class="img-fluid">
+              <div id="artist-name-container">
+                <div id="name">{{artist.name}}</div>
+              </div>
+            </div>
+          </div>
+          <div id="item1" class="level1-item col-sm-12 col-md-3 d-flex justify-content-center">
+            <div id="popularity-container" class="level1-val">
+              <div class="another-container" *ngIf="artistDetails.length > 0">
+                <p>Popularity</p>
+                <div id="spinner-container" >
+                  <p id="popularity"><span class="white">{{artist.popularity}}</span></p>
+                  <mat-progress-spinner mode="determinate" [value]="artist.popularity" [diameter]="diameter" color="warn"
+                                        [strokeWidth]="spinnerWidth">
+                  </mat-progress-spinner>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="item2"  class="level1-item col-sm-12 col-md-3 d-flex justify-content-center">
+            <div id='followers-container' class="level1-val">
+              <div class="another-container" *ngIf="artistDetails.length > 0">
+                <p>Followers</p>
+                <p *ngIf="artist.numFollowers"><span class="white">{{artist.numFollowers.toLocaleString()}}</span></p>
+              </div>
+            </div>
+          </div>
+          <div id="item3"  class="level1-item col-sm-12 col-md-3 d-flex justify-content-center">
+            <div id="spotify-container" class="level1-val">
+              <div class="another-container" *ngIf="artistDetails.length > 0">
+                <p id="spotify-header">Spotify Link</p>
+                <a  href="{{artist.url}}" target="_blank">
+                  <img id="spotify-img" src="../../assets/icons/spotify.svg" alt="spotify image">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="level2" class="level row  d-flex flex-sm-column flex-md-row">
+          <p id="album-featuring" class="col-12">Albums Featuring {{artist.name}}</p>
+          <div *ngFor="let album of artist.albumImgs" id="album-container" class="col-sm-6 col-md-4 d-flex">
+            <img src="{{album}}" alt="album image" class="album img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  <a class="carousel-control-prev" href="#artist-carousel" role="button" data-slide="prev"
+     *ngIf="artistDetails.length > 0">
+    <span class="carousel-control-prev-icon arrow" aria-hidden="true" (click)="slideBackward($event)"></span>
+  </a>
+  <a class="carousel-control-next" href="#artist-carousel" role="button" data-slide="next" *ngIf="artistDetails.length > 0">
+    <span class="carousel-control-next-icon arrow" aria-hidden="true" (click)="slideForward($event)"></span>
+  </a>
+  </div>
+
